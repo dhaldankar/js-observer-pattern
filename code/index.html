@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Observer Pattern
+        </title>
+
+        <style>
+            .square {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                display: inline-block;
+                background-color: black;
+                color: white;
+                font-size: 150%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="visual-observers" style="display:flex">
+
+        </div>
+
+        <hr>
+
+        <div id = "color-incrementers">
+
+        </div>
+
+        <script src="js/ColorIncrementer.js"> </script>
+        <script src="js/VisualObserver.js"> </script>
+        <script type="text/javascript">
+            const colorIncrementer1 = new ColorIncrementer();
+
+            document.getElementById('color-incrementers').append(colorIncrementer1.buttonEl);
+            
+            const vObserver = new VisualObserver();
+            document.getElementById('visual-observers').append(vObserver.element);
+            
+            colorIncrementer1.addObserver(vObserver);
+        </script>
+    </body>
+</html>
